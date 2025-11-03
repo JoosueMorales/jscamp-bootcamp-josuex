@@ -192,6 +192,14 @@ h1 {
     align-items: center;
     gap: 1rem;
     padding: .5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (width > 600px) {
+    .empleos-header {
+        justify-content: space-between;
+    }
 }
 
 .empleos-header>div:first-child {
@@ -211,10 +219,13 @@ h1 {
 }
 
 .empleos-header>div:last-child {
-    margin-left: auto;
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+.job-listing-cards {
+    flex-wrap: wrap;
 }
 
 /* Estilos del Icono de Perfil de la pagina de empleos */
@@ -339,7 +350,7 @@ h1+p {
     padding-inline: 1rem;
 }
 
-.formbar>div {
+.formbar > div:first-child {
     display: flex;
     align-items: center;
     background-color: var(--input-bg);
@@ -347,6 +358,7 @@ h1+p {
     box-shadow: 0 10px 15px -3px var(--shadow);
     padding: 0.5rem;
     gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 
@@ -492,6 +504,12 @@ footer {
 
     
 }
+
+.conteiner section {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+} 
 
 
 .search-section-1 {
