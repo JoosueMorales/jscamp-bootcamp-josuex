@@ -27,8 +27,11 @@
             </nav>
         </div>
         <div>
-            <a class="botonCv">Subir CV</a>
-            <img src="img/file_00000000d0846246a71551fd78cbb5b2.png" alt="Foto de perfil usuario" width="40">
+            <!-- Siempre que haya un anchor, debe tener un href -->
+            <a href="#" class="botonCv">Subir CV</a>
+            <!-- Cuando coloquemos el width, también debemos colocar el height -->
+            <img src="img/file_00000000d0846246a71551fd78cbb5b2.png" alt="Foto de perfil usuario" width="40"
+                height="40">
         </div>
     </header>
 
@@ -38,93 +41,108 @@
 
             <section>
                 <h1>Encuentra el trabajo de tus sueños.</h1>
-                <p>Explora miles de oportidades en el sector tecnologico.</p>
-            </section>
+                <p>Explora miles de oportunidades en el sector tecnológico.</p>
 
 
-            <section class="search-section-1">
-                <form class="formbar" role="search" aria-label="Buscar empleos">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-search">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                            <path d="M21 21l-6 -6" />
-                        </svg>
-                        <input required type="text" placeholder="Buscar trabajos, empresa o habilidad...">
-                    </div>
-                </form>
+                <div class="search-section-1">
+                    <!-- El formulario se hizo para que el usuario pueda filtrar los resultados de empleos, por lo tanto, no solo debe englobar el input, sino también los select  -->
+                    <form class="formbar" role="search" aria-label="Buscar empleos">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                                <path d="M21 21l-6 -6" />
+                            </svg>
+                            <!-- 
+                            Sacamos el atributo `required`. Cuando un campo es obligatorio para continuar con el proceso, como por ejemplo la contraseña de un usuario en el signin, es necesario agregar el atributo `required`.
+                            En este caso, podemos hacer un filtrado de los resultados por la tecnología, la ubicación, el contrato y la experiencia, sin necesidad de llenar el input de texto. 
+                            -->
+                            <input type="text" placeholder="Buscar trabajos, empresa o habilidad...">
+                        </div>
 
 
-                <div class="filters-selects">
-                    <select name="tecnologia" id="filter-tecnologia">
-                        <option value="">Tecnología</option>
-                        <option value="javascript">JavaScript</option>
-                        <option value="python">Python</option>
-                        <option value="java">Java</option>
-                    </select>
-                    <select name="ubicacion" id="filter-ubicacion">
-                        <option value="">Ubicación</option>
-                        <option value="remoto">Remoto</option>
-                        <option value="mexico">México</option>
-                        <option value="españa">España</option>
-                    </select>
-                    <select name="contrato" id="filter-contrato">
-                        <option value="">Tipo de contrato</option>
-                        <option value="fulltime">Full Time</option>
-                        <option value="mediaJornada">Media Jornada</option>
-                        <option value="freelance">Freelance</option>
-                    </select>
-                    <select name="experiencia" id="filter-experiencia">
-                        <option value="">Experiencia</option>
-                        <option value="junior">Junior</option>
-                        <option value="senior">Senior</option>
-                    </select>
+
+                        <div class="filters-selects">
+                            <select name="tecnologia" id="filter-tecnologia">
+                                <option value="">Tecnología</option>
+                                <option value="javascript">JavaScript</option>
+                                <option value="python">Python</option>
+                                <option value="java">Java</option>
+                            </select>
+                            <select name="ubicacion" id="filter-ubicacion">
+                                <option value="">Ubicación</option>
+                                <option value="remoto">Remoto</option>
+                                <option value="mexico">México</option>
+                                <option value="españa">España</option>
+                            </select>
+                            <select name="contrato" id="filter-contrato">
+                                <option value="">Tipo de contrato</option>
+                                <option value="fulltime">Full Time</option>
+                                <option value="mediaJornada">Media Jornada</option>
+                                <option value="freelance">Freelance</option>
+                            </select>
+                            <select name="experiencia" id="filter-experiencia">
+                                <option value="">Experiencia</option>
+                                <option value="junior">Junior</option>
+                                <option value="senior">Senior</option>
+                            </select>
+                        </div>
+                    </form>
                 </div>
-
             </section>
 
             <section class="results-section-1">
                 <h2>Resultados de busqueda</h2>
-                <div class="jobs-listings">
-                    <article data-modalidad="remoto" class="job-listing-cards">
-                        <div>
-                            <h3>Ingeniero en Software</h3>
-                            <h4>Tech Solutions Inc. | Remoto</h4>
-                            <p>Buscamos ingeniero en software. </p>
-                        </div>
-                        <button class="button-apply-job" id="boton-importante">Aplicar</button>
-                    </article>
+                <!-- Los trabajos son una lista de resultados, por lo que se puede agrupar en un `ul` -->
+                <ul class="jobs-listings">
+                    <li>
+                        <article data-modalidad="remoto" class="job-listing-cards">
+                            <div>
+                                <h3>Ingeniero en Software</h3>
+                                <!-- Cambiamos el h4 por un small, si fuese un h4 estaríamos indicando que es un encabezado de la sección. Sin embargo, en este caso, es una información adicional de menor importancia -->
+                                <small>Tech Solutions Inc. | Remoto</small>
+                                <p>Buscamos ingeniero en software. </p>
+                            </div>
+                            <button class="button-apply-job" id="boton-importante">Aplicar</button>
+                        </article>
+                    </li>
+                    <li>
+                        <article data-modalidad="mexico" class="job-listing-cards">
+                            <div>
+                                <h3>Desarrollador Frontend</h3>
+                                <small>Web Creators | México</small>
+                                <p>Se necesita desarrollador frontend con experiencia en React.</p>
+                            </div>
+                            <button class="button-apply-job">Aplicar</button>
 
-                    <article data-modalidad="mexico" class="job-listing-cards">
-                        <div>
-                            <h3>Desarrollador Frontend</h3>
-                            <h4>Web Creators | México</h4>
-                            <p>Se necesita desarrollador frontend con experiencia en React.</p>
-                        </div>
-                        <button class="button-apply-job">Aplicar</button>
-
-                    </article>
-                    <article  data-modalidad="españa" class="job-listing-cards">
-                        <div>
-                            <h3>Desarrollador Backend</h3>
-                            <h4>Data Systems | España</h4>
-                            <p>Oportunidad para desarrollador backend con conocimientos en Node.js y bases de datos SQL.
-                            </p>
-                        </div>
-                        <button class="button-apply-job">Aplicar</button>
-                    </article>
-
-                    <article data-modalidad="remoto" class="job-listing-cards">
-                        <div>
-                            <h3>Desarrollador Full Stack</h3>
-                            <h4>Innovatech | Remoto</h4>
-                            <p>Empresa en crecimiento busca desarrollador full stack con experiencia en MERN.</p>
-                        </div>
-                        <button class="button-apply-job">Aplicar</button>
-                    </article>
-                </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article data-modalidad="españa" class="job-listing-cards">
+                            <div>
+                                <h3>Desarrollador Backend</h3>
+                                <small>Data Systems | España</small>
+                                <p>Oportunidad para desarrollador backend con conocimientos en Node.js y bases de datos
+                                    SQL.
+                                </p>
+                            </div>
+                            <button class="button-apply-job">Aplicar</button>
+                        </article>
+                    </li>
+                    <li>
+                        <article data-modalidad="remoto" class="job-listing-cards">
+                            <div>
+                                <h3>Desarrollador Full Stack</h3>
+                                <small>Innovatech | Remoto</small>
+                                <p>Empresa en crecimiento busca desarrollador full stack con experiencia en MERN.</p>
+                            </div>
+                            <button class="button-apply-job">Aplicar</button>
+                        </article>
+                    </li>
+                </ul>
                 <span id="mensaje-filtrado"></span>
             </section>
 
